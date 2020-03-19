@@ -16,7 +16,7 @@ function GetCoupon({navigation}) {
           </View>
           <View style={styles.beesLogoView}>
             <Image
-               style={{width:widthPercentageToDP(36), height:heightPercentageToDP(18), borderRadius:10}}
+               style={{width:widthPercentageToDP(36), height:heightPercentageToDP(18), borderRadius:10,resizeMode: 'contain'}}
                source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/mainscreenlogo.png')}
                />
           </View>
@@ -68,9 +68,9 @@ const styles = StyleSheet.create({
     fontWeight:'bold'
   },
   thanksTextView: {
-    flex:1,
     alignItems:'center',
-    marginTop:heightPercentageToDP(4)
+    marginTop:heightPercentageToDP(4),
+
   },
   thanksText: {
     marginLeft:widthPercentageToDP(10),
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   buttonView: {
     marginLeft:widthPercentageToDP(10),
     marginRight:widthPercentageToDP(10),
-    marginTop:heightPercentageToDP(3.5)
+    marginTop:heightPercentageToDP(5)
   },
   button: {
     alignItems: 'center',
@@ -89,12 +89,12 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     borderRadius:50,
     height:heightPercentageToDP(6),
-    marginTop:heightPercentageToDP(3.5)
+    
   },
   btnText: {
     color:"black",
     fontWeight:"bold",
-    fontSize:heightPercentageToDP(2.5)
+    fontSize:heightPercentageToDP(2.2)
   },
   bottomImageView: {
     flex:1,
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
  bottomImage: {
     width:widthPercentageToDP(100),
     height:heightPercentageToDP(18), 
-    
+    resizeMode: 'contain'
  }
 
 })

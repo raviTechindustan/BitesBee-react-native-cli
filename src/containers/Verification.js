@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { View,Text,StyleSheet,ScrollView,Image,TextInput,TouchableOpacity } from 'react-native'
+import { View,Text,StyleSheet,ScrollView,Image,TextInput,TouchableOpacity,KeyboardAvoidingView  } from 'react-native'
 import {
    widthPercentageToDP,
    heightPercentageToDP
@@ -9,10 +9,10 @@ function Verification({navigation}) {
    const[code,setCode]= useState('')
 
    return(
-      <View style={styles.contianer}>
+      <KeyboardAvoidingView  style={styles.contianer}>
           <View style={styles.phonelogo}>
              <Image
-              style={{width:widthPercentageToDP(40),height:heightPercentageToDP(18)}}
+              style={{width:widthPercentageToDP(40),height:heightPercentageToDP(18),resizeMode: 'contain'}}
               source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/otp.png')}
               />
           </View>
@@ -30,32 +30,38 @@ function Verification({navigation}) {
                style={styles.InputForm}
                // onChangeText={text => setCode(text)}
                maxLength={1}
-            
+               autoFocus={true}
+               keyboardType={'numeric'}
                />
                <TextInput
                style={styles.InputForm}
                //  onChangeText={text => setCode(text)}
                 maxLength={1}
+                keyboardType={'numeric'}
                />
                <TextInput
                   style={styles.InputForm}
                    //onChangeText={text => onChangeText(text)}
                    maxLength={1}
+                   keyboardType={'numeric'}
                />
                <TextInput
                   style={styles.InputForm}
                    //onChangeText={text => onChangeText(text)}
                    maxLength={1}
+                   keyboardType={'numeric'}
                />
                <TextInput
                   style={styles.InputForm}
                    //onChangeText={text => onChangeText(text)}
                    maxLength={1}
+                   keyboardType={'numeric'}
                />
                <TextInput
                   style={styles.InputForm}
                    //onChangeText={text => onChangeText(text)}
                    maxLength={1}
+                   keyboardType={'numeric'}
                />
          </View>
 
@@ -73,7 +79,7 @@ function Verification({navigation}) {
               source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/bg.png')}
               />
           </View>
-          </View>
+          </KeyboardAvoidingView >
       
    )
 }
@@ -119,7 +125,7 @@ const styles = StyleSheet.create({
       flexDirection:'row',
       marginLeft:widthPercentageToDP(3),
       marginRight:widthPercentageToDP(3),
-      marginTop:heightPercentageToDP(6),
+      marginTop:heightPercentageToDP(4),
       alignItems:'center',
       justifyContent:'center'
    },
@@ -138,7 +144,7 @@ const styles = StyleSheet.create({
       btnText: {
          color:"black",
          fontWeight:"bold",
-         fontSize:heightPercentageToDP(2.5)
+         fontSize:heightPercentageToDP(2.2)
        },
       InputForm: {
          textAlign:'center',

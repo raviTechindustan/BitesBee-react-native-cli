@@ -7,6 +7,7 @@ import Verification from './containers/Verification'
 import GetCoupon from './containers/GetCoupon'
 import FoodCoupon from './containers/FoodCoupon'
 import WelcomeBitesBee from './containers/WelcomeBitesBee'
+import Tinder from './containers/Tinder'
 const Stack = createStackNavigator();
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           },
         }}  />
         <Stack.Screen name="WelcomeBitesBee" component={WelcomeBitesBee} options={{headerShown:false}} />
+        <Stack.Screen name="Tinder" component={Tinder} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

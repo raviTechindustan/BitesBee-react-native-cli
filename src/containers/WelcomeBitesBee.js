@@ -7,43 +7,46 @@ import {
 
 function WelcomeBitesBee({navigation}) {
    return(
-       <ScrollView style={{backgroundColor:'white'}}>
+       <View style={{backgroundColor:'white',flex:1}}>
           <View style={styles.beesLogoView}>
             <Image
-               style={{width:120, height: 120, borderRadius:10}}
+               style={{width:widthPercentageToDP(20), height:heightPercentageToDP(12), borderRadius:10,resizeMode: 'contain'}}
                source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/loginlogo.png')}
                />
           </View>
           <View style={styles.welcomeTextView}>
             <Text style={styles.welcomeText}>Welcome to BitesBee</Text>
           </View>
+          <View style={{height:heightPercentageToDP(30),marginTop:heightPercentageToDP(6)}}>
           <ScrollView style={styles.infeature} horizontal={true} showsHorizontalScrollIndicator={false} automaticallyAdjustContentInsets={true}>
-            <Image
-            style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30)}}
-            source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/couponfoodimage.png')}
-            />
-            <Image
-            style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30)}}
-            source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/foodimage1.png')}
-            />
-            <Image
-            style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30)}}
-            source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/foodimage2.png')}
-            />
-            <Image
-            style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30)}}
-            source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/couponfoodimage.png')}
-            />
-            <Image
-            style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30)}}
-            source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/foodimage1.png')}
-            />
-            <Image
-            style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30)}}
-            source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/foodimage2.png')}
-            />
-           
-         </ScrollView>
+               <Image
+               style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30),resizeMode: 'contain'}}
+               source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/couponfoodimage.png')}
+               />
+               <Image
+               style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30),resizeMode: 'contain'}}
+               source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/foodimage1.png')}
+               />
+               <Image
+               style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30),resizeMode: 'contain'}}
+               source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/foodimage2.png')}
+               />
+               <Image
+               style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30),resizeMode: 'contain'}}
+               source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/couponfoodimage.png')}
+               />
+               <Image
+               style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30),resizeMode: 'contain'}}
+               source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/foodimage1.png')}
+               />
+               <Image
+               style={{width:widthPercentageToDP(60),height:heightPercentageToDP(30),resizeMode: 'contain'}}
+               source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/foodimage2.png')}
+               />
+            
+            </ScrollView>
+          </View>
+          
           <View style={styles.customTextView}>
             <Text style={styles.thanksText}>Thanks for installing this app </Text>
             <Text style={styles.thanksText2}>and for gettig coupon</Text>
@@ -51,12 +54,12 @@ function WelcomeBitesBee({navigation}) {
           <View style={styles.buttonView}>
             <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate('FoodCoupon')}
+            onPress={() => navigation.navigate('Tinder')}
             >
             <Text style={styles.btnText} >Get a coupon code</Text>
             </TouchableOpacity>
           </View>
-       </ScrollView>
+       </View>
    )
 }
 
@@ -78,7 +81,7 @@ const styles = StyleSheet.create({
       fontWeight:'bold'
    },
    customTextView: {
-      flex:1,
+      
       alignItems:'center',
       marginTop:heightPercentageToDP(4)
    },
@@ -98,6 +101,7 @@ const styles = StyleSheet.create({
    buttonView: {
       marginLeft:widthPercentageToDP(10),
       marginRight:widthPercentageToDP(10),
+      marginBottom:heightPercentageToDP(4)
    },
    button: {
       alignItems: 'center',
@@ -110,11 +114,11 @@ const styles = StyleSheet.create({
    btnText: {
       color:"black",
       fontWeight:"bold",
-      fontSize:15
+      fontSize:heightPercentageToDP(2.2)
       },
    infeature: {
-      flexDirection:'row',
-      marginTop:30
+      
+   
    },
 
 })

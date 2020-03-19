@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { View,Text,StyleSheet,ScrollView,Image,TextInput,TouchableOpacity } from 'react-native'
+import { View,Text,StyleSheet,ScrollView,Image,TextInput,TouchableOpacity ,KeyboardAvoidingView} from 'react-native'
 import {
    widthPercentageToDP,
    heightPercentageToDP
@@ -17,11 +17,11 @@ function Login({navigation}) {
    }
    return(
      
-       <View style={styles.contianer}>
+       <KeyboardAvoidingView style={styles.contianer} enabled>
           <View style={styles.foodImageView}>
             <Image
-            style={styles.foodImage}
-            source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/loginimage.png')}
+               style={styles.foodImage}
+               source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/loginimage.png')}
             />
           </View>
           <View style={styles.beeLogoView}>
@@ -41,6 +41,7 @@ function Login({navigation}) {
           </View>
           <View style={styles.phoneTextView}>
             <Text style={{color:'orange'}}>Phone Number</Text>
+
             <TextInput
                style={styles.inputTypePhone}
                onChangeText={onChangeText}
@@ -62,7 +63,7 @@ function Login({navigation}) {
               source={require('/home/sameer/development/test3/BitesBee/assets/images/Slicing/3x/bg.png')}
               />
           </View>
-       </View>
+       </KeyboardAvoidingView>
    )
 }
 
@@ -79,6 +80,7 @@ const styles = StyleSheet.create({
    foodImage: {
       width: widthPercentageToDP(60),
       height: heightPercentageToDP(20),
+      resizeMode: 'contain'
    },
    beeLogoView: {
       flexDirection:'row',
@@ -87,6 +89,7 @@ const styles = StyleSheet.create({
    beeLogo: {
       width: widthPercentageToDP(38),
       height: heightPercentageToDP(19),
+      resizeMode: 'contain'
    },
    customText: {
       flex:1,
@@ -134,19 +137,19 @@ const styles = StyleSheet.create({
    btnText: {
       color:"black",
       fontWeight:"bold",
-      fontSize:heightPercentageToDP(2.5)
+      fontSize:heightPercentageToDP(2.2)
    },
    bottomImageView: {
-      flex:1,
+      
       flexDirection:'row',
       justifyContent:"center",
-      marginTop:heightPercentageToDP(8),
+      marginTop:heightPercentageToDP(2),
       
    },
    bottomImage: {
-      width:widthPercentageToDP(100),
+      width:widthPercentageToDP(80),
       height:heightPercentageToDP(18), 
-      
+      resizeMode: 'contain'
    }
 })
 export default Login

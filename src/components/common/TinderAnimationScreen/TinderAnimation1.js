@@ -3,9 +3,9 @@ import { View,Text,StyleSheet,ScrollView,Image,TextInput,TouchableOpacity,Span }
 import {
    widthPercentageToDP,
    heightPercentageToDP
- } from '../../Utilities/DeviceDimensions'
+ } from '../../../../Utilities/DeviceDimensions'
 
-function FoodCoupon({navigation}) {
+function TinderAnimation1({navigation}) {
    return(
        <View style={{backgroundColor:'white',flex:1}}>
           <View style={{alignItems:'center',marginTop:heightPercentageToDP(0),position:"relative"}}>
@@ -34,7 +34,7 @@ function FoodCoupon({navigation}) {
          <Text style={{textAlign: 'center',width:'100%',position:'absolute',top:heightPercentageToDP(35),fontSize:heightPercentageToDP(3)}}>on your first meal</Text>
          <Text style={{textAlign: 'center',width:'100%',position:'absolute',top:heightPercentageToDP(44),fontSize:heightPercentageToDP(2.5),color:'white'}}>COUPON CODE</Text>
          <View style={{width:widthPercentageToDP(100),alignItems:'center',textAlign:'center',position:'absolute',top:heightPercentageToDP(51)}}  >
-            <TouchableOpacity onPress={() => navigation.navigate('WelcomeBitesBee')}>
+            <TouchableOpacity>
                <View style={{width:widthPercentageToDP(50),height:heightPercentageToDP(8),borderColor:'white',borderWidth:1,borderStyle: 'dashed',borderRadius: 1,justifyContent:'center'}}>  
                   <View style={{flexDirection:'column',alignItems:'center'}}>
                      <Text style={{color:'white',fontSize:heightPercentageToDP(2.5),fontWeight:'bold'}}>FIRST MEAL 20</Text>
@@ -45,7 +45,7 @@ function FoodCoupon({navigation}) {
          <View style={styles.buttonView}>
             <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate('WelcomeBitesBee')}
+            // onPress={() => navigation.navigate('WelcomeBitesBee')}
             >
             <Text style={styles.btnText} >Redeem now</Text>
             </TouchableOpacity>
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
          fontSize:heightPercentageToDP(2.2)
        },
 })
-export default FoodCoupon
+export default TinderAnimation1
