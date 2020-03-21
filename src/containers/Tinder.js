@@ -9,62 +9,41 @@ import TinderAnimation5 from '../components/common/TinderAnimationScreen/TinderA
 import TinderAnimation6 from '../components/common/TinderAnimationScreen/TinderAnimation6'
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 import { heightPercentageToDP } from '../../Utilities/DeviceDimensions.js'
-// const mydata = [
-//    { id: 1, text: 'card 1', uri:  TinderAnimation1},
-//    { id: 2, text: 'card 2', uri: 'https://source.unsplash.com/pJqfhKUpCh8' },
-//    { id: 3, text: 'card 3', uri: 'https://source.unsplash.com/H601tyBZy'},
-//    { id: 4, text: 'card 4', uri: 'https://source.unsplash.com/CE9YG0_Mzlw' },
-//    { id: 5, text: 'card 5', uri: 'https://source.unsplash.com/-_C4UZRpoQc' },
-//    { id: 6, text: 'card 6', uri: 'https://source.unsplash.com/RfoISVdKM4U' },
-//  ];
- let TinderAnimationcomponent1 = <TinderAnimation1 />
- let TinderAnimationcomponent2 = <TinderAnimation2 />
- let TinderAnimationcomponent3 = <TinderAnimation3 />
- let TinderAnimationcomponent4 = <TinderAnimation4 />
- let TinderAnimationcomponent5 = <TinderAnimation5 />
- let TinderAnimationcomponent6 = <TinderAnimation6 />
+
+let TinderAnimationcomponent1 = <TinderAnimation1 />
+let TinderAnimationcomponent2 = <TinderAnimation2 />
+let TinderAnimationcomponent3 = <TinderAnimation3 />
+let TinderAnimationcomponent4 = <TinderAnimation4 />
+let TinderAnimationcomponent5 = <TinderAnimation5 />
+let TinderAnimationcomponent6 = <TinderAnimation6 />
 
 const mydata = [
-      { id: 1, text: 'card 1', uri:  TinderAnimationcomponent1},
+      { id: 1, text: 'card 1', uri:  TinderAnimationcomponent1 },
       { id: 2, text: 'card 2', uri: TinderAnimationcomponent2 },
-      { id: 3, text: 'card 3', uri: TinderAnimationcomponent3},
+      { id: 3, text: 'card 3', uri: TinderAnimationcomponent3 },
       { id: 4, text: 'card 4', uri: TinderAnimationcomponent4 },
       { id: 5, text: 'card 5', uri: TinderAnimationcomponent5 },
       { id: 6, text: 'card 6', uri: TinderAnimationcomponent6 },
     ];
  
 class Tinder extends Component {
-
-
    renderCard(item) {
       return(
       <View>
         {item.uri}
       </View>
       )
-      // return(
-      //    <View  style={{margin:10}}>
-      //       <Card>
-      //          <Card.Title title={item.text}  />
-      //          <Image source={{ uri: item.uri }} style={{height:300}} />
-      //          <Card.Actions>
-      //             <Button>like</Button>
-      //             <Button>unlike</Button>
-      //          </Card.Actions>
-      //       </Card>
-      //    </View>
-      // )
-      
-   }
+   } 
+
    renderNoMoreCards() {
       return(
          <View  style={{margin:10,alignItems:'center',justifyContent:'center',height:heightPercentageToDP(100)}}>
           <Text style={{fontSize:heightPercentageToDP(3)}}>YOU Did Not Seleted Anyone</Text>
           
          </View>
-      )
-      
+      )      
    }
+
    render() {
       return(
          <View>
@@ -76,7 +55,6 @@ class Tinder extends Component {
            
          </View>
       )
-   }
-  
+   } 
 }
 export default Tinder

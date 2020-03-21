@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   beesLogoView: {
     flexDirection:'row',
     justifyContent:'center'
+    
   },
   delightedStaticTextView: {
     alignItems:'center',
@@ -97,9 +98,7 @@ const styles = StyleSheet.create({
     fontSize:heightPercentageToDP(2.2)
   },
   bottomImageView: {
-    flex:1,
-    flexDirection:'row',
-    justifyContent:"center",
+    
     marginTop:heightPercentageToDP(8),
     
  },

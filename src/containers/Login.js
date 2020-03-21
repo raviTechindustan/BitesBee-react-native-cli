@@ -17,7 +17,10 @@ function Login({navigation}) {
    }
    return(
      
-       <KeyboardAvoidingView style={styles.contianer} enabled>
+      <KeyboardAvoidingView
+      style={styles.container}
+      behavior="padding"
+    >
           <View style={styles.foodImageView}>
             <Image
                style={styles.foodImage}
@@ -78,9 +81,9 @@ const styles = StyleSheet.create({
       justifyContent:'flex-end'
    },
    foodImage: {
-      width: widthPercentageToDP(60),
-      height: heightPercentageToDP(20),
-      resizeMode: 'contain'
+      width:widthPercentageToDP(70),
+      height:heightPercentageToDP(20),
+      
    },
    beeLogoView: {
       flexDirection:'row',
@@ -115,7 +118,7 @@ const styles = StyleSheet.create({
    phoneTextView: {
       marginLeft:widthPercentageToDP(10),
       marginRight:widthPercentageToDP(10),
-      marginTop:heightPercentageToDP(5),
+      marginTop:heightPercentageToDP(10),
       
    },
    inputTypePhone: {
@@ -140,14 +143,11 @@ const styles = StyleSheet.create({
       fontSize:heightPercentageToDP(2.2)
    },
    bottomImageView: {
-      
-      flexDirection:'row',
-      justifyContent:"center",
-      marginTop:heightPercentageToDP(2),
+      marginTop:heightPercentageToDP(4),
       
    },
    bottomImage: {
-      width:widthPercentageToDP(80),
+      width:widthPercentageToDP(100),
       height:heightPercentageToDP(18), 
       resizeMode: 'contain'
    }

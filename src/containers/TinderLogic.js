@@ -53,7 +53,7 @@ class TinderLogic extends Component{
    mycardStyle(){
       const rotate = this.position.x.interpolate({
          inputRange:[-SCREEN_WIDTH*2,0,SCREEN_WIDTH *2],
-         outputRange:['-120deg','0deg','120deg']
+         outputRange:['-0deg','0deg','0deg']
       })
       return {
          ...this.position.getLayout(),

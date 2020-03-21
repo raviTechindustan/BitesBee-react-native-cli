@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{ useState,useRef,refCallback } from 'react'
 import { View,Text,StyleSheet,ScrollView,Image,TextInput,TouchableOpacity,KeyboardAvoidingView  } from 'react-native'
 import {
    widthPercentageToDP,
@@ -6,8 +6,79 @@ import {
  } from '../../Utilities/DeviceDimensions'
 
 function Verification({navigation}) {
-   const[code,setCode]= useState('')
+   const firstTextInputRef = useRef(null);
+   const secondTextInputRef = useRef(null);
+   const thirdTextInputRef = useRef(null);
+   const fourthTextInputRef = useRef(null);
+   const fifthTextInputRef = useRef(null);
+   const sixthTextInputRef = useRef(null);
+   const[otpArray,setOtpArray]= useState(['','','','','',''])
 
+   const onOtpChange  = (index) => {
+       return value => {
+        if (isNaN(Number(value))) {
+          // do nothing when a non digit is pressed
+          return;
+        }
+        const otpArrayCopy = otpArray.concat();
+        otpArrayCopy[index] = value;
+        setOtpArray(otpArrayCopy);
+  
+        // auto focus to next InputText if value is not blank
+        if (value !== '') {
+          if (index === 0) {
+            secondTextInputRef.current.focus();
+          } else if (index === 1) {
+            thirdTextInputRef.current.focus();
+          } else if (index === 2) {
+            fourthTextInputRef.current.focus();
+          } else if (index === 3) {
+            fifthTextInputRef.current.focus();
+          } else if (index === 4) {
+            sixthTextInputRef.current.focus();
+          }
+         }
+      };
+    };
+  // only backspace key press event is fired on Android
+  // to have consistency, using this event just to detect backspace key press and
+  // onOtpChange for other digits press
+  const onOtpKeyPress = index => {
+   return ({nativeEvent: {key: value}}) => {
+     // auto focus to previous InputText if value is blank and existing value is also blank
+     if (value === 'Backspace' && otpArray[index] === '') {
+       if (index === 1) {
+         firstTextInputRef.current.focus();
+       } else if (index === 2) {
+         secondTextInputRef.current.focus();
+       } else if (index === 3) {
+         thirdTextInputRef.current.focus();
+       }
+       else if (index === 4) {
+         fourthTextInputRef.current.focus();
+       }
+       else if (index === 5) {
+         fifthTextInputRef.current.focus();
+       }
+   
+
+       /**
+        * clear the focused text box as well only on Android because on mweb onOtpChange will be also called
+        * doing this thing for us
+        * todo check this behaviour on ios
+        */
+       if ( index > 0) {
+         const otpArrayCopy = otpArray.concat();
+         otpArrayCopy[index - 1] = ''; // clear the previous box which will be in focus
+         setOtpArray(otpArrayCopy);
+       }
+     }
+   };
+ };
+
+ otpArray.map((value) => {
+    console.log(value)
+ })
    return(
       <KeyboardAvoidingView  style={styles.contianer}>
           <View style={styles.phonelogo}>
@@ -26,43 +97,25 @@ function Verification({navigation}) {
             <Text style={styles.enterText2}> on your phone number</Text>
          </View>
          <View style={styles.inputView}>
+            {[
+               firstTextInputRef,
+               secondTextInputRef,
+               thirdTextInputRef,
+               fourthTextInputRef,
+               fifthTextInputRef,
+               sixthTextInputRef
+            ].map((textInputRef, index)=> (
                <TextInput
                style={styles.InputForm}
-               // onChangeText={text => setCode(text)}
+               onChangeText={onOtpChange(index)}
                maxLength={1}
-               autoFocus={true}
+               autoFocus={index==0 ? true : undefined}
                keyboardType={'numeric'}
+               key={index}
+               ref={textInputRef}
+               onKeyPress={onOtpKeyPress(index)}
                />
-               <TextInput
-               style={styles.InputForm}
-               //  onChangeText={text => setCode(text)}
-                maxLength={1}
-                keyboardType={'numeric'}
-               />
-               <TextInput
-                  style={styles.InputForm}
-                   //onChangeText={text => onChangeText(text)}
-                   maxLength={1}
-                   keyboardType={'numeric'}
-               />
-               <TextInput
-                  style={styles.InputForm}
-                   //onChangeText={text => onChangeText(text)}
-                   maxLength={1}
-                   keyboardType={'numeric'}
-               />
-               <TextInput
-                  style={styles.InputForm}
-                   //onChangeText={text => onChangeText(text)}
-                   maxLength={1}
-                   keyboardType={'numeric'}
-               />
-               <TextInput
-                  style={styles.InputForm}
-                   //onChangeText={text => onChangeText(text)}
-                   maxLength={1}
-                   keyboardType={'numeric'}
-               />
+            ))}
          </View>
 
          <View style={styles.proceedButtonView}>
@@ -139,16 +192,18 @@ const styles = StyleSheet.create({
       justifyContent:"center",
       borderRadius:50,
       height:heightPercentageToDP(6),
-      marginTop:heightPercentageToDP(4)
+      marginTop:heightPercentageToDP(4),
+ 
       },
       btnText: {
          color:"black",
          fontWeight:"bold",
-         fontSize:heightPercentageToDP(2.2)
+         fontSize:heightPercentageToDP(2),
+      
        },
       InputForm: {
          textAlign:'center',
-         fontSize:20,
+         fontSize:heightPercentageToDP(3),
          borderRadius:12,
          height:heightPercentageToDP(8),
          width:widthPercentageToDP(12),
@@ -166,16 +221,15 @@ const styles = StyleSheet.create({
          elevation: 0,    
       },
       bottomImageView: {
-         flex:1,
-         flexDirection:'row',
-         justifyContent:"center",
+        
+       
          marginTop:heightPercentageToDP(8),
          
       },
       bottomImage: {
          width:widthPercentageToDP(100),
-         height:heightPercentageToDP(18), 
-         
+         height:heightPercentageToDP(16), 
+         resizeMode:'contain'
       }
 })
 
